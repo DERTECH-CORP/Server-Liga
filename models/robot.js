@@ -12,6 +12,10 @@ const RobotSchema = Schema({
         required : true,
         captain : String,
     },
+    description : {
+        type : String,
+        required : true,
+    },
     score:{
         type : Number,
         required : true,
