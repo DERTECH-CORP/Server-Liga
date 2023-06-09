@@ -1,5 +1,7 @@
 
 const express = require("express");
+const  path  = require("path");
+const cors = require('cors')
 const http = require('http');
 const  socketio  = require("socket.io");
 
@@ -16,6 +18,13 @@ class Server {
         //config sockets
         this.io = socketio( this.server, {/* configuraciones */ })
 
+    }
+
+    middelwares(){
+
+        this.app(express.static(path.resolve(__dirname,'../public')))
+
+        this.app.use(cors())
     }
 
     goServer(){
