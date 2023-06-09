@@ -18,5 +18,11 @@ class Server {
 
     }
 
-    
+    goServer(){
+
+        this.server.listen( this.port, ()=>{
+            console.log(`El server esta corriendo en el port: ${this.port}`)
+        })
+    }
+
 }
