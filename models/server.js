@@ -22,13 +22,20 @@ class Server {
 
     middelwares(){
 
+        //directorio publico
         this.app(express.static(path.resolve(__dirname,'../public')))
 
+        //init cors
         this.app.use(cors())
+
+        //parseo del body
+        this.app.use( express.json() );
+
     }
 
     goServer(){
 
+        //deploy server
         this.server.listen( this.port, ()=>{
             console.log(`El server esta corriendo en el port: ${this.port}`)
         })
