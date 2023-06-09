@@ -4,6 +4,7 @@ const  path  = require("path");
 const cors = require('cors')
 const http = require('http');
 const  socketio  = require("socket.io");
+const { DBConnection } = require("../database/config");
 
 
 class Server {
@@ -11,6 +12,9 @@ class Server {
     constructor(){
         this.app = express();
         this.port = process.env.PORT
+
+        //Conectar a la base de datos 
+        DBConnection();
 
         //http server
         this.server = http.createServer(this.app)
