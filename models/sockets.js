@@ -3,8 +3,6 @@
 
     constructor(io){
         this.io = io;
-
-        this.socketsEvents()
     }
 
     socketsEvents(){

@@ -5,6 +5,7 @@ const cors = require('cors')
 const http = require('http');
 const  socketio  = require("socket.io");
 const { DBConnection } = require("../database/config");
+const Sockets = require("./sockets");
 
 
 class Server {
@@ -21,6 +22,10 @@ class Server {
 
         //config sockets
         this.io = socketio( this.server, {/* configuraciones */ })
+
+        this.sockets = new Sockets(this.io);
+        
+        this.sockets.socketsEvents();
 
     }
 
