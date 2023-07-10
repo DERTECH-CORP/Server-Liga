@@ -35,6 +35,9 @@ class Server {
         //parseo del body
         this.app.use( express.json() );
 
+        //router auth
+        this.app.use('/api/login', require('../router/auth'));
+
     }
 
     goServer(){
